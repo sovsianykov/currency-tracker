@@ -1,0 +1,50 @@
+
+@font-face {
+  font-family: 'Rubic';
+  src: local('Rubic'), url(./assets/fonts/rubic/Rubik-Regular.ttf) format('opentype');
+}@font-face {
+  font-family: 'KaushanScript';
+  src: local('KaushanScript-Regular.ttf'), url(./assets/fonts/KaushanScript-Regular/KaushanScript-Regular.ttf) format('opentype');
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  line-height: 1.15;
+  background: url("./assets/img/moneyBg.jpg") no-repeat center center/cover;
+  font-family: 'Rubic', sans-serif;
+}
+
+ul {
+  padding: 0!important;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h4, h5, h6 {
+  color: #252525;
+  font-weight: 400;
+}
+
+a {
+  color: #252525;
+  text-decoration: none;
+}
+img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
+
