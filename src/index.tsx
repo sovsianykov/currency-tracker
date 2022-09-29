@@ -6,11 +6,10 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./app/constants/theme";
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <ThemeProvider theme={theme}>
       <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+    </ThemeProvider>,
   document.getElementById("root")
 );
 

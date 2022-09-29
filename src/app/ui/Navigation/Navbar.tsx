@@ -61,7 +61,7 @@ const Navbar: FunctionComponent = () => {
     }
   }, [ref]);
   const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down('xs')
+    theme.breakpoints.down('sm')
   );
   return (
     <AppBar className={classes.root}>

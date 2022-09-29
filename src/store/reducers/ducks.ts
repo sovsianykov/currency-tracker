@@ -5,10 +5,12 @@ import { fetchCurrency } from "../thunks";
 
 export interface CurrencyRatesSliceState {
   rates: AsyncSlice<CurrencyRatesSliceState[]>;
+  baseCurrency:string
 }
 
 export const initialState: CurrencyRatesSliceState = {
   rates: ReduxUtils.getAsyncSlice<CurrencyRatesSliceState[]>(),
+  baseCurrency: "uah"
 };
 
 const currencySlice = createSlice({
@@ -18,6 +20,9 @@ const currencySlice = createSlice({
     resetState: (state) => {
       state.rates = initialState.rates;
     },
+    setBaseCurrency: (state,action:PayloadAction<string>) =>{
+      state.baseCurrency = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCurrency.pending, (state) => {

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { Box, Container, Theme } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Box, Theme } from "@mui/material";
 // @ts-ignore
 import bg from "../../../assets/img/bg_brown.jpg";
+import { makeStyles } from "@material-ui/styles";
 
 interface PageProps {
   children?: JSX.Element | JSX.Element[];
@@ -13,24 +13,25 @@ interface PageProps {
   withoutBg?:boolean;
 }
 interface StyleProps {
-  centered?: boolean;
   rowDirection?: boolean;
   withoutBg?:boolean;
 }
 
-const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
+const useStyles = makeStyles<Theme, StyleProps>(() => ({
   root: {
     minHeight: "100vh",
     maxWidth: 1600,
+    margin:"0 auto",
     padding: 0,
     display: "flex",
-    flexDirection: (styleProps) => (styleProps.rowDirection ? "row" : "column"),
-    alignItems: (styleProps) => (styleProps.centered ? "center" : "flex-start"),
+    flexDirection:  "column",
+    alignItems:  "center" ,
+
     background: ({withoutBg})=> withoutBg ? "transparent": `url(${bg}) center center/cover`,
   },
   titleBlock: {
     margin: "0 auto",
-    padding: theme.spacing(2),
+    padding: 10,
     fontSize: 20,
     letterSpacing: ".1rem",
     fontWeight: 600,
@@ -40,23 +41,19 @@ const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
 const Page: FunctionComponent<PageProps> = ({
   children,
   pageTitle,
-  centered,
-  rowDirection,
   withoutBg,
 }) => {
   const stylePops = {
-    centered,
-    rowDirection,
     withoutBg
   };
   const classes = useStyles(stylePops);
 
   return (
-    <Container className={classes.root}>
+    <Box className={classes.root}>
        <Box sx={{width:"100%",height: 80}}/>
       {pageTitle && <Box className={classes.titleBlock}>{pageTitle}</Box>}
       {children}
-    </Container>
+    </Box>
   );
 };
 
