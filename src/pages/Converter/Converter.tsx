@@ -5,7 +5,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { ratesSelector } from '../../store/selectors/selectors';
 import {
   Button,
-  FormControl,
+  FormControl, InputLabel,
   MenuItem, Paper,
   Select,
   SelectChangeEvent,
@@ -18,8 +18,9 @@ import { theme } from '../../app/constants/theme';
 const useStyles = makeStyles(() => ({
   root: {
     width: 450,
-    height: 60,
-    margin: '0 auto',
+    height: 80,
+    padding:theme.spacing(1.2),
+    margin: '10px auto',
     display: 'flex',
     justifyContent: 'space-between',
     background: '#edece0',
@@ -31,11 +32,12 @@ const useStyles = makeStyles(() => ({
     height: 30,
     padding: theme.spacing(2.6, 0),
   },
+
   input: {
     width: 100,
   },
   btn: {
-    margin: '0 auto',
+    margin: '10px auto',
     display:"block"
   },
 }));
@@ -77,6 +79,7 @@ const Converter = () => {
           className={classes.input}
         />
         <FormControl>
+          <InputLabel id="demo-simple-select-label2">base</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -94,8 +97,11 @@ const Converter = () => {
             <MenuItem value={'sek'}>sek</MenuItem>
           </Select>
         </FormControl>
-        <Typography className={classes.totalAmount}>{exchanged}</Typography>
+      </Paper>
+      <Paper className={classes.root} elevation={8}>
+        <Typography className={classes.totalAmount} ml={1.7}>{exchanged}</Typography>
         <FormControl>
+          <InputLabel id="demo-simple-select-label3">goal</InputLabel>
           <Select
             labelId="demo"
             id="demo"
