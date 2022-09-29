@@ -1,13 +1,12 @@
 import React, { FunctionComponent, useCallback, useRef } from 'react';
 import {
-  AppBar,
-  Container,
+  AppBar, Box,
   IconButton,
   Menu,
   Theme,
   Toolbar,
-  useMediaQuery,
-} from '@mui/material';
+  useMediaQuery
+} from "@mui/material";
 import MenuIcon from '@material-ui/icons/Menu';
 import NavbarMenu from './NavbarMenu';
 import NavbarItemMobile from './NavbarItemMobile';
@@ -22,6 +21,14 @@ interface StyleProps {
 const useStyles = makeStyles<Theme, StyleProps>(() => ({
   root: {
     background: '#3d2f09',
+    position:"fixed",
+    zIndex:10
+  },
+  container : {
+    margin: "0 auto",
+    display:"flex",
+    justifyContent:"space-between",
+    maxWidth: 1100
   },
   logo: {
     fontSize: '24px',
@@ -65,8 +72,8 @@ const Navbar: FunctionComponent = () => {
   );
   return (
     <AppBar className={classes.root}>
-      <Container>
-        <Toolbar>
+      <Box>
+        <Toolbar className={classes.container}>
           <Link to={AppRoutes.Home}>
             <h4 className={classes.logo} >
               Currency
@@ -110,7 +117,7 @@ const Navbar: FunctionComponent = () => {
             <NavbarMenu />
           )}
         </Toolbar>
-      </Container>
+      </Box>
     </AppBar>
   );
 };

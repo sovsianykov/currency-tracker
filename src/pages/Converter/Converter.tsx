@@ -17,7 +17,7 @@ import { theme } from '../../app/constants/theme';
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: 450,
+    width: 350,
     height: 80,
     padding:theme.spacing(1.2),
     margin: '10px auto',
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
   },
 
   input: {
-    width: 100,
+    width: "auto",
   },
   btn: {
     margin: '10px auto',

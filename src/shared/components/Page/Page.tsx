@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Box, Theme } from "@mui/material";
+import { Box } from "@mui/material";
 // @ts-ignore
 import bg from "../../../assets/img/bg_brown.jpg";
 import { makeStyles } from "@material-ui/styles";
@@ -7,27 +7,20 @@ import { makeStyles } from "@material-ui/styles";
 interface PageProps {
   children?: JSX.Element | JSX.Element[];
   pageTitle?: string;
-  centered?: boolean;
-  background?: boolean;
-  rowDirection?: boolean;
-  withoutBg?:boolean;
-}
-interface StyleProps {
-  rowDirection?: boolean;
-  withoutBg?:boolean;
 }
 
-const useStyles = makeStyles<Theme, StyleProps>(() => ({
+
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: "100vh",
-    maxWidth: 1600,
+    maxWidth: 1100,
     margin:"0 auto",
     padding: 0,
     display: "flex",
     flexDirection:  "column",
     alignItems:  "center" ,
 
-    background: ({withoutBg})=> withoutBg ? "transparent": `url(${bg}) center center/cover`,
+    background:  `url(${bg}) center center/cover`,
   },
   titleBlock: {
     margin: "0 auto",
@@ -41,12 +34,9 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
 const Page: FunctionComponent<PageProps> = ({
   children,
   pageTitle,
-  withoutBg,
 }) => {
-  const stylePops = {
-    withoutBg
-  };
-  const classes = useStyles(stylePops);
+
+  const classes = useStyles();
 
   return (
     <Box className={classes.root}>

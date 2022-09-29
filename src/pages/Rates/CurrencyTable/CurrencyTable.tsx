@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
   root: {
     width: 290,
     height: '60vh',
+    marginTop: 30,
     overflowY: 'scroll',
   },
   cell: {
@@ -65,7 +66,7 @@ const CurrencyTable = () => {
         {isLoading ? (
           <LinearProgress />
         ) : (
-          <table>
+          <table >
             <thead>
               <tr>
                 <th className={classes.cell}>Currency</th>
