@@ -33,9 +33,9 @@ const currencySlice = createSlice({
       state.rates.error = "";
       state.rates.data = action.payload;
     });
-    builder.addCase(fetchCurrency.rejected, (state) => {
+    builder.addCase(fetchCurrency.rejected, (state,{payload}) => {
       state.rates.isLoading = false;
-      state.rates.error = "something vent wrong";
+      state.rates.error = payload as string;
     });
   },
 });
